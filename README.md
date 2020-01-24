@@ -32,9 +32,10 @@ The result is 130 lines of C++, plus 300 lines of plain-old-data components, bui
 
 For developing with EnTT, here are calls to look out for.
 
-| Function                      | Cost/call
-|:------------------------------|:-----------
-| `registry.view<>()`           | `~0.5-150.0 ms`
-| `registry.on_construct<>()`   | `~0.500 ms`
-| `registry.view<>().each()`    | `~0.8-40.0 ms`
-| `registry.view<>().less()`    | `~0.5-28.0 ms`
+| Function                      | Min cost/call (ms) | Max cost/call
+|:------------------------------|:-------------------|:-----------
+| `registry.view<>()`           | 0.5              | 150.0
+| `registry.on_construct<>()`   | 0.500            | 0.500
+| `registry.view<>().each()`    | 0.8              | 40.0
+| `registry.view<>().less()`    | 0.5              | 28.0
+    
