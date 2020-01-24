@@ -15,7 +15,7 @@ Drag'n'drop JSON file at https://www.speedscope.app/
 
 The [Sequentity Example Application](https://github.com/alanjfs/sequentity) is an example built with EnTT, and takes 10-13 seconds to build on a moderate, 2 year-old machine. That's a lot, and I wasn't sure where it was spending its time.
 
-Thanks to the new `-ftime-trace` in Clang 9, the mysteries of the universe was revealed and encapsulated into this benchmark example you see before you. The [`main.cpp`]() of this repository contains the entire Sequentity Example Application, but stripped from anything but calls to EnTT. It uses the same components, the same lambdas and same calls to EnTT. Well, as close as possible given that the actual logic is excluded.
+Thanks to the new `-ftime-trace` in Clang 9, the mysteries of the universe was revealed and encapsulated into this benchmark example you see before you. The [`main.cpp`](https://github.com/alanjfs/enttbench/blob/master/main.cpp) of this repository contains the entire Sequentity Example Application, but stripped from anything but calls to EnTT. It uses the same components, the same lambdas and same calls to EnTT. Well, as close as possible given that the actual logic is excluded.
 
 The result is 130 lines of C++, plus 300 lines of plain-old-data components, building in *9 seconds*.
 
