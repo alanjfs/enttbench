@@ -14,6 +14,8 @@ static void init() {
 
     registry.create<Name>(group1.begin(), group1.end());
     registry.create<Position>(group2.begin(), group2.end());
+    registry.create(group3.begin(), group3.end());
+    registry.create(group4.begin(), group4.end());
 
     for (auto entity : group1) {
         registry.assign<Orientation>(entity);
@@ -118,9 +120,21 @@ static void test_for() {
 }
 
 
+static void on_position(entt::entity, entt::registry&) {}
+static void on_orientation(entt::entity, entt::registry&) {}
+static void on_size(entt::entity, entt::registry&) {}
+static void on_data(entt::entity, entt::registry&) {}
+
+
 int main() {
+    registry.on_construct<Position>().connect<&on_position>();
+    registry.on_construct<Orientation>().connect<&on_orientation>();
+    registry.on_construct<Size>().connect<&on_size>();
+    registry.on_construct<Tool::Data>().connect<&on_data>();
+
     init();
     test_view();
     test_for();
+
     return 0;
 }
